@@ -16,10 +16,12 @@ app = Flask(__name__)
 def mapa():
    
     url = (
-        "https://raw.githubusercontent.com/Sud-Austral/mapa_glaciares/main/json"
+        "https://raw.githubusercontent.com/Sud-Austral/mapa_municipios/main/json"
     )
 
-    geojson = f"{url}/R10_AREA_Glac_ZONA_glac.json"
+    geojson = f"{url}/data.json"
+
+    geo_json_data = json.loads(requests.get(geojson).text)
 
     m = folium.Map(
         location=[-33.48621795345005, -70.66557950912359],
@@ -28,7 +30,7 @@ def mapa():
         )
 
 
-    geojson = folium.GeoJson(geojson, 
+    geojson = folium.GeoJson(geo_json_data, 
                     name="Municipios",
                     ).add_to(m)
 
