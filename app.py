@@ -15,11 +15,14 @@ app = Flask(__name__)
 @app.route('/')
 def mapa():
    
+    com = request.args.get("comuna")
+    com = str(com)
+
     url = (
         "https://raw.githubusercontent.com/Sud-Austral/mapa_municipios/main/json"
     )
 
-    geojson = f"{url}/data.json"
+    geojson = f"{url}/" + com + ".json"
 
     geo_json_data = json.loads(requests.get(geojson).text)
 
