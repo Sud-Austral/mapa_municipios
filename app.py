@@ -56,7 +56,7 @@ def mapa():
     df_ = df_[df_["COD_ZonLoc"] == i]
     indx_ = df_.index[0]
 
-    output_dict_ = [x for x in input_dict_div['features'] if x['properties']['COD_ZonLoc'] == i]
+    output_dict_ = [x for x in input_dict_div['features'] if x['properties']['COD_ZonLoc'] == str(i)]
 
     salida_ = {'type':'FeatureCollection','features':output_dict_}
 
