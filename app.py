@@ -49,63 +49,63 @@ def mapa():
     # AGREGACIÓN DE POLÍGONOS
     feature_group = FeatureGroup(name="MUNICIPIOS", show=False)
 
-    for i in divi:
-                
-        df_ = dfDiv
+    # for i in divi:
+    i = 1101011001     
+    df_ = dfDiv
 
-        df_ = df_[df_["COD_ZonLoc"] == i]
-        indx_ = df_.index[0]
+    df_ = df_[df_["COD_ZonLoc"] == i]
+    indx_ = df_.index[0]
 
-        output_dict_ = [x for x in input_dict_div['features'] if x['properties']['COD_ZonLoc'] == i]
+    output_dict_ = [x for x in input_dict_div['features'] if x['properties']['COD_ZonLoc'] == i]
 
-        salida_ = {'type':'FeatureCollection','features':output_dict_}
+    salida_ = {'type':'FeatureCollection','features':output_dict_}
 
-        htmlDiv="""
+    htmlDiv="""
 
-            <style>
-                *{
-                    font-family: Arial, Tahoma;
-                    font-size: 13px;
-                }
-                
-                li{
-                    list-style:none;
-                    margin-left: -40px;
-                }
+        <style>
+            *{
+                font-family: Arial, Tahoma;
+                font-size: 13px;
+            }
+            
+            li{
+                list-style:none;
+                margin-left: -40px;
+            }
 
-                img{
-                    width: 70%;
-                    height: auto;
-                }
+            img{
+                width: 70%;
+                height: auto;
+            }
 
-                .banner{
-                    width: 100%;
-                    height: auto;
-                }
-            </style>
-            <br>
-            <h3><center>COLECCIÓN MUNICIPIOS</center></h3>
-            <div>
-                <ul>
-                    <li><b>REGIÓN:</b> """ + str(df_["REGION"][indx_]) + """</li>
-                    <li><b>PROVINCIA</b> """ + str(df_["PROVINCIA"][indx_]) + """</li>
-                    <li><b>COMUNA:</b> """ + str(df_["NOMBRE_COM"][indx_]) + """</li>
-                </ul>
-            </div>
-        """
+            .banner{
+                width: 100%;
+                height: auto;
+            }
+        </style>
+        <br>
+        <h3><center>COLECCIÓN MUNICIPIOS</center></h3>
+        <div>
+            <ul>
+                <li><b>REGIÓN:</b> """ + str(df_["REGION"][indx_]) + """</li>
+                <li><b>PROVINCIA</b> """ + str(df_["PROVINCIA"][indx_]) + """</li>
+                <li><b>COMUNA:</b> """ + str(df_["NOMBRE_COM"][indx_]) + """</li>
+            </ul>
+        </div>
+    """
 
-        iframeDiv = folium.IFrame(html=htmlDiv, width=250, height=300)
-        _popupDiv = folium.Popup(iframeDiv, max_width=2650)
+    iframeDiv = folium.IFrame(html=htmlDiv, width=250, height=300)
+    _popupDiv = folium.Popup(iframeDiv, max_width=2650)
 
-    
 
-        geojsonDiv = folium.GeoJson(json.dumps(salida_),
-                       tooltip = folium.GeoJsonTooltip(fields=["Nombre"],
-                       aliases = ['NOMBRE: ']),
-                        ).add_to(feature_group)
 
-        popupDiv = _popupDiv
-        popupDiv.add_to(geojsonDiv)
+    geojsonDiv = folium.GeoJson(json.dumps(salida_),
+                    tooltip = folium.GeoJsonTooltip(fields=["Nombre"],
+                    aliases = ['NOMBRE: ']),
+                    ).add_to(feature_group)
+
+    popupDiv = _popupDiv
+    popupDiv.add_to(geojsonDiv)
 
     feature_group.add_to(m)
     folium.LayerControl().add_to(m)
