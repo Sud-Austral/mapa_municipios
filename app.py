@@ -49,7 +49,7 @@ def mapa():
     # MAPA
     m = folium.Map(
         location=ubicacion,
-        zoom_start=13,
+        zoom_start=8,
         
         )
 
