@@ -31,7 +31,7 @@ def mapa():
     input_dict_div = json.loads(requests.get(geojson).content)
 
     # TABLA CSV, SUBDIVISIONES
-    datosDiv = "https://raw.githubusercontent.com/Sud-Austral/mapa_glaciares/main/csv/Censo2017_Poblacion1_ZONLOC.csv"
+    datosDiv = "https://raw.githubusercontent.com/hectorflores329/mapa_insumos/main/municipios/csv/Censo2017_Poblacion1_ZONLOC.csv"
     dfDiv = pd.read_csv(datosDiv)
 
     dfSubc = dfDiv[dfDiv["COD_COMUNA"] == com]
@@ -47,7 +47,7 @@ def mapa():
 
 
     # AGREGACIÓN DE POLÍGONOS
-    feature_group = FeatureGroup(name="Sectores del complejo glaciar", show=False)
+    feature_group = FeatureGroup(name="MUNICIPIOS", show=False)
 
     for i in divi:
         
