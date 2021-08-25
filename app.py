@@ -34,7 +34,7 @@ def mapa():
     datosDiv = "https://raw.githubusercontent.com/hectorflores329/mapa_insumos/main/municipios/csv/Censo2017_Poblacion1_ZONLOC.csv"
     dfDiv = pd.read_csv(datosDiv)
 
-    dfSubc = dfDiv[dfDiv["COD_COMUNA"] == com]
+    dfSubc = dfDiv[dfDiv["COD_COMUNA"] == int(com)]
     divi = dfSubc["COD_ZonLoc"].unique().tolist()
     divi
 
