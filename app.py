@@ -83,7 +83,6 @@ def mapa():
                     height: auto;
                 }
             </style>
-            <br>
             <h3><center>COLECCIÓN MUNICIPIOS</center></h3>
             <div>
                 <ul>
