@@ -28,7 +28,7 @@ def mapa():
     geo_json_data = json.loads(requests.get(geojson).text)
 
     # TABLA CSV, SUBDIVISIONES
-    datosDiv = "https://raw.githubusercontent.com/Sud-Austral/mapa_glaciares/main/csv/R10_Lim_Glaciares_FINAL_ClipRegion.csv"
+    datosDiv = "https://raw.githubusercontent.com/Sud-Austral/mapa_glaciares/main/csv/Censo2017_Poblacion1_ZONLOC.csv"
     dfDiv = pd.read_csv(datosDiv)
 
     dfSubc = dfDiv[dfDiv["COD_COMUNA"] == int(com)]
