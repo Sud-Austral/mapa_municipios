@@ -27,14 +27,13 @@ def mapa():
     geojson = f"{url}/" + com + ".json"
     geo_json_data = json.loads(requests.get(geojson).text)
 
-    # TABLA CSV
-    datos = "https://raw.githubusercontent.com/hectorflores329/mapa_insumos/main/municipios/csv/Censo2017_Poblacion1_ZONLOC.csv"
-    df = pd.read_csv(datos)
+    # TABLA CSV, SUBDIVISIONES
+    datosDiv = "https://raw.githubusercontent.com/Sud-Austral/mapa_glaciares/main/csv/R10_Lim_Glaciares_FINAL_ClipRegion.csv"
+    dfDiv = pd.read_csv(datosDiv)
 
-    df = df[df["COD_COMUNA"] == int(com)]
-    indx = df.index[0]
-
-    
+    dfSubc = dfDiv[dfDiv["COD_COMUNA"] == int(com)]
+    divi = dfSubc["COD_ZonLoc"].unique().tolist()
+    divi
 
     # MAPA
     m = folium.Map(
