@@ -42,7 +42,7 @@ def mapa():
 
     # AGREFANDO COORDENADA POR COMUNA
     if (com != ""):
-        ubicacion = [float(dfSubc["lon_comuna"][indx]), float(dfSubc["lat_comuna"][indx])]
+        ubicacion = [float(dfSubc["lat_comuna"][indx]), float(dfSubc["lon_comuna"][indx])]
     else:
         ubicacion = [-33.48621795345005, -70.66557950912359]
 
