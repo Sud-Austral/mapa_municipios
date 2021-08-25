@@ -74,14 +74,10 @@ def mapa():
                 }
 
                 img{
-                    width: 70%;
-                    height: auto;
-                }
-
-                .banner{
                     width: 100%;
                     height: auto;
                 }
+
             </style>
 
             <h3><center>COLECCIÓN MUNICIPIOS</center></h3>
@@ -92,6 +88,7 @@ def mapa():
                     <li><b>COMUNA:</b> """ + str(df_["NOMBRE_COM"][indx_]) + """</li>
                 </ul>
             </div>
+            <center><img src="https://github.com/hectorflores329/mapa_insumos/blob/07b24b7d09214ca67da78dfbc04953e5e4f2f89d/municipios/img/chart.png" alt="Data Intelligence"/></center>
         """
 
         iframeDiv = folium.IFrame(html=htmlDiv, width=250, height=300)
