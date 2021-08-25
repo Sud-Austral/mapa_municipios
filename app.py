@@ -38,9 +38,17 @@ def mapa():
     divi = dfSubc["COD_ZonLoc"].unique().tolist()
     divi
 
+    indx = dfSubc.index[0]
+
+    # AGREFANDO COORDENADA POR COMUNA
+    if (com != ""):
+        ubicacion = [float(dfSubc["lon_comuna"][indx]), float(dfSubc["lat_comuna"][indx])]
+    else:
+        ubicacion = [-33.48621795345005, -70.66557950912359]
+
     # MAPA
     m = folium.Map(
-        location=[-33.48621795345005, -70.66557950912359],
+        location=ubicacion,
         zoom_start=13,
         
         )
