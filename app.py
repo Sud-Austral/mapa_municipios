@@ -28,11 +28,13 @@ def mapa():
     geo_json_data = json.loads(requests.get(geojson).text)
 
     # TABLA CSV
-    datos = "https://raw.githubusercontent.com/hectorflores329/mapa_insumos/main/municipios/csv/Censo2017_Poblacion1_ZONLOC_agrupado.csv"
+    datos = "https://raw.githubusercontent.com/hectorflores329/mapa_insumos/main/municipios/csv/Censo2017_Poblacion1_ZONLOC.csv"
     df = pd.read_csv(datos)
 
     df = df[df["COD_COMUNA"] == int(com)]
     indx = df.index[0]
+
+    
 
     # MAPA
     m = folium.Map(
